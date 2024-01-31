@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Explicitly copy node_modules
+COPY --from=builder /app/node_modules /app/node_modules
+
 # Compile TypeScript code
 RUN npm run build
 
