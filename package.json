@@ -6,7 +6,7 @@
     "scripts": {
         "build": "npx tsc",
         "dev": "docker-compose down && docker-compose up --remove-orphans",
-        "start": "npx prisma migrate dev --name migration && node dist/server/src/app.js",
+        "start": "node dist/server/src/app.js",
         "database": "docker exec -it draftbash-postgres-1 psql -U postgres -d draftbash"
     },
     "dependencies": {
