@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_4280aea589064c60bdda44d04acadb4b }}/sfeddes/draftbash:${{ github.sha }}
+        tags: index.docker.io/sfeddes/draftbash:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
