@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_207664da284c408e9773e9650aa7f682 }}/sfeddes/draftbash:${{ github.sha }}
+        tags: index.docker.io/sfeddes/draftbash:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'draftbashfantasy'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_0a5dd7d2df4843f989b7117d72238de8 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_207664da284c408e9773e9650aa7f682 }}/sfeddes/draftbash:${{ github.sha }}'
+        images: 'index.docker.io/sfeddes/draftbash:${{ github.sha }}'
