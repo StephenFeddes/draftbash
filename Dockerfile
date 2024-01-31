@@ -1,35 +1,26 @@
 # Use an official Node.js runtime as a base image
 FROM node:20
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy the root-level package.json and package-lock.json to the working directory
+# Copy shared dependencies from the root
 COPY package*.json ./
-
-# Install the latest version of npm
-RUN npm install -g npm
-
-# Install root-level dependencies
 RUN npm install
 
-# Copy the TypeScript configuration file
-COPY tsconfig.json ./
-
-# Copy all package.json files in the monorepo
-COPY packages/*/package*.json ./packages/
-
-# Install dependencies for each package
-RUN npm install --prefix packages
-
-# Copy the entire monorepo to the container
+# Copy the rest of the application code
 COPY . .
 
-# Build the TypeScript app for each package
-RUN npm run build --prefix packages
+# For each module, copy its package.json and install dependencies
+# Adjust the paths accordingly based on your actual project structure
+COPY packages/*/package*.json ./packages/
+RUN npm install --prefix ./packages/
+
+# Set the working directory to the TypeScript build output
+WORKDIR /app/dist/server
 
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Define the command to run your application
-CMD ["npm", "start"]
+# Command to run the application
+CMD ["node", "src/app.js"]
