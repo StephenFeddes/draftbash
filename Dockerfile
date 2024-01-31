@@ -16,6 +16,9 @@ COPY . .
 COPY packages/*/package*.json ./packages/
 RUN npm install --prefix ./packages/
 
+# Build TypeScript code
+RUN npm run build:server
+
 # Set the working directory to the TypeScript build output
 WORKDIR /app/dist/server
 
