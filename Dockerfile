@@ -7,8 +7,14 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+# Install the latest version of npm
+RUN npm install -g npm@latest
+
 # Install app dependencies
 RUN npm install
+
+# Install TypeScript type declarations for missing modules
+RUN npm install --save-dev @types/express @types/cors @types/socket.io @types/bcryptjs @types/jsonwebtoken @types/pg
 
 # Copy the rest of the application code
 COPY . .
