@@ -1,3 +1,4 @@
+// Exports errors
 export { InvalidJwtTokenError } from './InvalidJwtTokenError';
 export { InvalidUserCredentialsError } from './InvalidUserCredentialsError';
 export { UserAlreadyExistsError } from './UserAlreadyExistsError';
