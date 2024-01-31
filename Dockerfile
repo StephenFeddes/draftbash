@@ -4,20 +4,19 @@ FROM node:20
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy shared dependencies from the root
 COPY package*.json ./
-
-# Install the latest version of npm
-RUN npm install -g npm@latest
-
-# Install app dependencies
 RUN npm install
-
-# Install TypeScript type declarations for missing modules
-RUN npm install --save-dev @types/express @types/cors @types/socket.io @types/bcryptjs @types/jsonwebtoken @types/pg
 
 # Copy the rest of the application code
 COPY . .
+
+# For each module, copy its package.json and install dependencies
+# Adjust the paths accordingly based on your actual project structure
+COPY packages/*/package*.json ./packages/
+RUN npm install --prefix ./packages/
+
+# Repeat the above lines for each module
 
 # Compile TypeScript code
 RUN npm run build
