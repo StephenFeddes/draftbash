@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_01c31cd5165e4ebf90d98fd84b271ac2 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_7b401f85355b45df9363f3b5091fb3b8 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_207664da284c408e9773e9650aa7f682 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_11244e9d75ea4adb9f3a6e4a01abf2ed }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/sfeddes/draftbash:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_207664da284c408e9773e9650aa7f682 }}/sfeddes/draftbash:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'draftbashfantasy'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_403ae241751049bdb6bbf7a412246954 }}
-        images: 'index.docker.io/sfeddes/draftbash:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0a5dd7d2df4843f989b7117d72238de8 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_207664da284c408e9773e9650aa7f682 }}/sfeddes/draftbash:${{ github.sha }}'
