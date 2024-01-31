@@ -48,4 +48,4 @@ jobs:
         app-name: 'draftbashfantasy'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d7f01a2839234b5998d0a266eaa66005 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_4280aea589064c60bdda44d04acadb4b }}/sfeddes/draftbash:${{ github.sha }}'
+        images: 'index.docker.io/sfeddes/draftbash:${{ github.sha }}'
