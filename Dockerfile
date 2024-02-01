@@ -6,20 +6,23 @@ WORKDIR /app
 
 # Copy shared dependencies from the root
 COPY package*.json ./
-RUN npm install
+COPY yarn.lock ./
+
+# Install dependencies for all packages
+RUN yarn install
 
 # Copy the rest of the application code
 COPY . .
 
-# For each module, copy its package.json and install dependencies
-# Adjust the paths accordingly based on your actual project structure
-COPY packages/*/package*.json ./packages/
-RUN npm install --prefix ./packages/
+# Install dependencies for each package
+WORKDIR /app/packages
+RUN yarn install
 
-# Build TypeScript code
-RUN npm run build:server
+# Build TypeScript code for all packages
+WORKDIR /app
+RUN npx tsc
 
-# Set the working directory to the TypeScript build output
+# Set the working directory to the TypeScript build output of the server module
 WORKDIR /app/dist/server
 
 # Expose the port the app runs on
