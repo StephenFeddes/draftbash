@@ -13,7 +13,7 @@ export const SignupForm = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const { handleSignup, signupError } = useSignup();
 
-    const handleLoginClick = async (event) => {
+    const handleLoginClick = async (event: any) => {
         event.preventDefault();
         await handleSignup(username, email, password, confirmPassword);
     };

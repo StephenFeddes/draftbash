@@ -1,4 +1,3 @@
-import React from "react";
 import { RightColumn } from "../signup";
 import { LeftColumn } from "../signup";
 

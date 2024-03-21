@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { MockDraft } from '../../../../../business/src/value-objects';
 import { CreateMockDraftRequest } from '../../../../../contracts';
 import { DraftSettings } from '../../../../../business/src/value-objects';
 
 export const useCreateMockDraft = () => {
     const [createMockDraftError, setMockDraftError] = useState<string | null>(null);
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const handleCreateMockDraft = async (settings: CreateMockDraftRequest) => {
         try {

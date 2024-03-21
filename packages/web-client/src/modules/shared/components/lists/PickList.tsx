@@ -52,12 +52,13 @@ const PickList: React.FC<Props> = ({ itemList, defaultValue, width = 100, setVal
                 </div>
             </div>
             {isOpen && (
-                <ul style={{ ...styles.ul, width: `${Number(width) + 30}px` }}>
+                <ul style={{ ...styles.ul, width: `${Number(width) + 30}px` } as React.CSSProperties}>
                     {itemList.map((item: any, index: number) => (
                         <li
                             style={{
                                 ...styles.li,
-                                backgroundColor: (hoveredItem === item || selectedItem === item) ? 'var(--lightGrey)' : 'transparent',
+                                backgroundColor:
+                                    hoveredItem === item || selectedItem === item ? 'var(--lightGrey)' : 'transparent',
                             }}
                             onMouseEnter={() => setHoveredItem(item)}
                             onMouseLeave={() => setHoveredItem(null)}
@@ -80,7 +81,7 @@ const PickList: React.FC<Props> = ({ itemList, defaultValue, width = 100, setVal
 const styles = {
     pickList: {
         position: 'relative',
-    },
+    } as React.CSSProperties,
     inputContainer: {
         display: 'flex',
     },

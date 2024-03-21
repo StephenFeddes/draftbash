@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PageFrame, RoundedButton } from '../../shared';
 import { useAuth } from '../../shared';
 import PickList from '../../shared/components/lists/PickList';
@@ -24,7 +24,6 @@ export function CreateMockDraftsPage() {
 
     const handleLoginClick = async (event: any) => {
         event.preventDefault();
-        console.log(user?.userId)
         if (user) {
             await handleCreateMockDraft({
                 scheduledByUserId: user.userId,

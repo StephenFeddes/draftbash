@@ -15,6 +15,7 @@ export function MockDraftsPage() {
 
     const incrementMockDrafts = () => {
         const newIndex = (draftIndex + 1) % mockDrafts.length;
+        setMockDrafts([1,2,3])
         setSlideDirection('right');
         setDraftIndex(newIndex);
     };
