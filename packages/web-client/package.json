@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "main": "index.ts",
     "scripts": {
-        "build": "npx tsc --jsx react --outDir build src/App.tsx",
+        "build": "vite build",
         "dev": "vite"
     },
     "dependencies": {

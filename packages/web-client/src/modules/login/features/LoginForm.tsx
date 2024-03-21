@@ -36,7 +36,7 @@ const styles = {
         width: '50%',
         marginLeft: '25%',
         marginTop: '25px',
-        backgroundColor: 'var(--blue)',
+        backgroundColor: 'var(--gold)',
         color: 'white',
     },
     error: {
