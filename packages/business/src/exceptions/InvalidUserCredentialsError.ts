@@ -1,4 +1,4 @@
-import { BadRequestError } from "./BadRequestError";
+import { BadRequestError } from './BadRequestError';
 
 export class InvalidUserCredentialsError extends BadRequestError {
     constructor(message: string) {

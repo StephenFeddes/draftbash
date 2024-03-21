@@ -8,7 +8,7 @@ export const LoginForm = () => {
     const [password, setPassword] = useState('');
     const { handleLogin, loginError } = useLogin();
 
-    const handleLoginClick = async (event) => {
+    const handleLoginClick = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
         await handleLogin(usernameOrEmail, password);
     };

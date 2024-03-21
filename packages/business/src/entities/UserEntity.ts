@@ -1,5 +1,5 @@
-import { BadRequestError } from "../exceptions";
-import { UserCredentials } from "../value-objects";
+import { BadRequestError } from '../exceptions';
+import { UserCredentials } from '../value-objects';
 
 export class UserEntity {
   private userId: number;

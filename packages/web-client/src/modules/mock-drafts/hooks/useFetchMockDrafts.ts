@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../shared';
 
 export const useFetchMockDrafts = () => {
-    const {user} = useAuth();
+    const { user } = useAuth();
     const [drafts, setDrafts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<Error>();
+    const [fetchError, setFetchError] = useState<Error>();
 
     useEffect(() => {
         const fetchUserDrafts = async () => {
@@ -16,7 +16,7 @@ export const useFetchMockDrafts = () => {
                 setDrafts(data);
             } catch (error: unknown) {
                 if (error instanceof Error) {
-                    setError(error);
+                    setFetchError(error);
                 }
             } finally {
                 setLoading(false);
@@ -26,5 +26,5 @@ export const useFetchMockDrafts = () => {
         fetchUserDrafts();
     }, [user?.userId]);
 
-    return { drafts, loading, error };
+    return { drafts, loading, fetchError };
 };

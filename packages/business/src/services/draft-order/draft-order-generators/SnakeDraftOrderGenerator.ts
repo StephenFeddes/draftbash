@@ -1,4 +1,4 @@
-import { IDraftOrderGenerator } from "../IDraftOrderGenerator";
+import { IDraftOrderGenerator } from '../IDraftOrderGenerator';
 
 export class SnakeDraftOrderGenerator implements IDraftOrderGenerator {
     generate(numberOfTeams: number, teamSize: number): number[] {

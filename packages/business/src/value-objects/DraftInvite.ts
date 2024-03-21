@@ -1,4 +1,4 @@
-import { BadRequestError } from "../exceptions";
+import { BadRequestError } from '../exceptions';
 
 export class DraftInvite {
     private readonly userId: number;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactNode, useEffect, useState } from "react";
-import { UserResponse } from '../../../../../contracts';
+import { UserResponse } from '../../../../../contracts/src/rest-api/responses/UserResponse';
 import { AuthContext } from "../context/AuthContext";
 
 interface AuthProviderProps {

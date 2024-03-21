@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "main": "index.ts",
     "scripts": {
-        "build": "npx tsc"
+        "build": "npx tsc",
+        "dev": "vite"
     },
     "dependencies": {
         "@types/react": "^18.2.48",
@@ -15,7 +16,8 @@
         "react-icons": "^5.0.1",
         "react-router-dom": "^6.21.3",
         "typescript": "^5.3.3",
-        "vite": "^5.0.12"
+        "vite": "^5.0.12",
+        "vite-plugin-env-compatible": "^2.0.1"
     },
     "devDependencies": {
         "eslint": "^8.56.0",

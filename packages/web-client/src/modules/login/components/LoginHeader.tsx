@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const LoginHeader = () => {
+export function LoginHeader() {
     return (
         <h1 style={styles.loginHeader}>
             Login
-            <Link to="/signup">
-                Signup
-            </Link>
+            <Link to="/signup">Signup</Link>
         </h1>
     );
-};
+}
 
 const styles = {
     loginHeader: {
@@ -21,5 +19,5 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
-    }
+    },
 };

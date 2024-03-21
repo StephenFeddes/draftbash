@@ -1,5 +1,5 @@
 import * as Bcrypt from 'bcryptjs';
-import { IBcryptService } from "../../../contracts"
+import { IBcryptService } from '../../../contracts';
 
 export class BcryptService implements IBcryptService {
     private readonly bcrypt: typeof Bcrypt;

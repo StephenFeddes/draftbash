@@ -8,14 +8,14 @@ import {
     CreateUserRequest,
     UserResponse,
     MockDraftResponse,
-} from "../../../../contracts";
+} from '../../../../contracts';
 import {
     UserAlreadyExistsError,
     BadRequestError,
     UserNotFoundByUsernameError,
     InvalidJwtTokenError,
     InvalidUserCredentialsError,
-} from "../../../../business";
+} from '../../../../business';
 
 export class UsersController {
     private readonly createUsersUsecase: ICreateUsersUseCase;
@@ -69,7 +69,10 @@ export class UsersController {
         try {
             const usernameOrEmail: string = req.body.usernameOrEmail as string;
             const password: string = req.body.password as string;
-            const jwtAuthorizationToken: string = await this.loginUsersUseCase.loginUser(usernameOrEmail, password);
+            const jwtAuthorizationToken: string = await this.loginUsersUseCase.loginUser(
+                usernameOrEmail,
+                password,
+            );
             res.status(200).send({ jwtToken: jwtAuthorizationToken });
         } catch (error: unknown) {
             if (error instanceof InvalidUserCredentialsError) {

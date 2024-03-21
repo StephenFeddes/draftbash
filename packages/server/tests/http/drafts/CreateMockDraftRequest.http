@@ -3,7 +3,6 @@ Content-Type: application/json
 
 {
     "scheduledByUserId": 8,
-    "invitedUserIds": [],
     "draftSettings": {
         "orderType": "snake",
         "scoringType": "points",

@@ -1,6 +1,6 @@
-import { CreateMockDraftRequest, ICreateMockDraftsUseCase } from '../../../../../contracts'
+import { CreateMockDraftRequest, ICreateMockDraftsUseCase } from '../../../../../contracts';
 import { IDraftUsersRepository, IMockDraftsRepository } from '../../../persistence';
-import { DraftOrderGeneratorFactory, IDraftOrderGenerator } from '../../../services';
+import { DraftOrderGeneratorFactory } from '../../../services';
 import { DraftSettings, MockDraft } from '../../../value-objects';
 
 export class CreateMockDraftsUseCase implements ICreateMockDraftsUseCase {
@@ -21,20 +21,24 @@ export class CreateMockDraftsUseCase implements ICreateMockDraftsUseCase {
 
         const mockDraft = new MockDraft(createMockDraftRequest.scheduledByUserId, mockDraftSettings);
 
-        const draftOrderGenerator: IDraftOrderGenerator = this.draftOrderGeneratorFactory.getDraftOrderGenerator(
-            mockDraftSettings.getOrderType()
+        const draftOrderGenerator = this.draftOrderGeneratorFactory.getDraftOrderGenerator(
+            mockDraftSettings.getOrderType(),
         );
 
         const draftOrder: number[] = draftOrderGenerator.generate(
             mockDraftSettings.getTeamCount(),
-            mockDraftSettings.getTeamSize()
+            mockDraftSettings.getTeamSize(),
         );
 
         const draftId: number = await this.mockDraftsRepository.insertMockDraft(mockDraft, draftOrder);
 
         const startingPosition: number = Math.floor(Math.random() * mockDraftSettings.getTeamCount()) + 1;
 
-        await this.draftUsersRepository.insertDraftUser(draftId, createMockDraftRequest.scheduledByUserId, startingPosition);
+        await this.draftUsersRepository.insertDraftUser(
+            draftId,
+            createMockDraftRequest.scheduledByUserId,
+            startingPosition,
+        );
 
         return draftId;
     }

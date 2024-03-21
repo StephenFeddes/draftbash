@@ -1,4 +1,4 @@
-import { BadRequestError } from "../exceptions";
+import { BadRequestError } from '../exceptions';
 
 export class IntegerInterval {
     private readonly lowerBound: number;

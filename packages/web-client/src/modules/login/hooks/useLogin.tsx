@@ -11,7 +11,7 @@ export const useLogin = () => {
 
     const handleLogin = async (usernameOrEmail: string, password: string) => {
         try {
-            const response = await fetch((import.meta as any).env.VITE_REACT_API_URL + '/users/authentication-tokens', {
+            const response = await fetch(`${(import.meta as any).env.VITE_REACT_API_URL}/users/authentication-tokens`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

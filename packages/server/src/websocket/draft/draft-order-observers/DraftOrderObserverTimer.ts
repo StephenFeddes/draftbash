@@ -1,4 +1,4 @@
-import { IWebSocketAdapter } from "../../../../../contracts";
+import { IWebSocketAdapter } from '../../../../../contracts';
 import { IDraftOrderSubject } from '../IDraftOrderSubject';
 import { IDraftOrderObserver } from '../IDraftOrderObserver';
 

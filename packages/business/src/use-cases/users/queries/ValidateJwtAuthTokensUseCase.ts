@@ -1,4 +1,4 @@
-import { UserResponse, IJwtAuthTokensService, IValidateJwtAuthTokensUseCase } from "../../../../../contracts";
+import { UserResponse, IJwtAuthTokensService, IValidateJwtAuthTokensUseCase } from '../../../../../contracts';
 
 export class ValidateJwtAuthTokensUseCase implements IValidateJwtAuthTokensUseCase {
     private readonly jwtAuthTokenService: IJwtAuthTokensService;

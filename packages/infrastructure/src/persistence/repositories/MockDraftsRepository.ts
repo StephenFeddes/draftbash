@@ -1,5 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { MockDraftEntity, IMockDraftsRepository, DraftSettings, MockDraft } from "../../../../business";
+import {
+    MockDraftEntity,
+    IMockDraftsRepository,
+    DraftSettings,
+    MockDraft,
+} from '../../../../business';
 import { DatabaseConnection } from '../DatabaseConnection';
 
 export class MockDraftsRepository implements IMockDraftsRepository {
@@ -77,7 +82,11 @@ export class MockDraftsRepository implements IMockDraftsRepository {
         await this.db.query('DELETE FROM drafts WHERE draft_id = $1', [draftId]);
     }
 
-    public async updateMockDraft(draftId: number, draftSettings: DraftSettings, draftOrder: number[]) {
+    public async updateMockDraft(
+        draftId: number,
+        draftSettings: DraftSettings,
+        draftOrder: number[],
+    ) {
         try {
             // Start a database transaction
             await this.db.query('BEGIN');
@@ -120,11 +129,13 @@ export class MockDraftsRepository implements IMockDraftsRepository {
             );
 
             // Delete existing draft order rows for the specified draft
-            await this.db.query(`DELETE FROM draft_orders WHERE draft_id = $1`, [draftId]);
+            await this.db.query('DELETE FROM draft_orders WHERE draft_id = $1', [draftId]);
 
             // Insert new draft orders for the specified draft in bulk.
             const draftOrderValues = draftOrder
-                .map((teamNumber, index) => `($${index * 3 + 1}, $${index * 3 + 2}, $${index * 3 + 3})`)
+                .map(
+                    (teamNumber, index) => `($${index * 3 + 1}, $${index * 3 + 2}, $${index * 3 + 3})`,
+                )
                 .join(', ');
 
             await this.db.query(
@@ -138,7 +149,11 @@ export class MockDraftsRepository implements IMockDraftsRepository {
                     `UPDATE draft_orders
                     SET user_id = $1
                     WHERE team_number = $2 AND draft_id = $3`,
-                    [previousUserDraftPositions[i].user_id, previousUserDraftPositions[i].team_number, draftId],
+                    [
+                        previousUserDraftPositions[i].user_id,
+                        previousUserDraftPositions[i].team_number,
+                        draftId,
+                    ],
                 );
             }
 
@@ -185,12 +200,18 @@ export class MockDraftsRepository implements IMockDraftsRepository {
 
             // Bulk insert draft orders
             const draftOrderValues = draftOrder
-                .map((teamNumber: number, index: number) => `($${index * 3 + 1}, $${index * 3 + 2}, $${index * 3 + 3})`)
+                .map(
+                    (teamNumber: number, index: number) => `($${index * 3 + 1}, $${index * 3 + 2}, $${index * 3 + 3})`,
+                )
                 .join(', ');
             await this.db.query(
                 `INSERT INTO draft_orders (team_number, draft_id, pick_number)
                 VALUES ${draftOrderValues}`,
-                draftOrder.flatMap((teamNumber: number, index: number) => [teamNumber, draftId, index + 1]),
+                draftOrder.flatMap((teamNumber: number, index: number) => [
+                    teamNumber,
+                    draftId,
+                    index + 1,
+                ]),
             );
 
             // Commit the transaction

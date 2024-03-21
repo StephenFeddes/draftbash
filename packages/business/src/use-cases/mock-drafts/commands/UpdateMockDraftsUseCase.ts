@@ -1,4 +1,4 @@
-import { UpdateMockDraftRequest, IUpdateMockDraftsUseCase } from "../../../../../contracts";
+import { UpdateMockDraftRequest, IUpdateMockDraftsUseCase } from '../../../../../contracts';
 import { DraftSettings } from '../../../value-objects';
 import { IMockDraftsRepository } from '../../../persistence';
 import { DraftOrderGeneratorFactory, IDraftOrderGenerator } from '../../../services';

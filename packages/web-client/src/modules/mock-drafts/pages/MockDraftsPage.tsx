@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { TbChevronCompactLeft } from 'react-icons/tb';
 import { TbChevronCompactRight } from 'react-icons/tb';
-import { RoundedButton, PageFrame } from '../shared';
-import MockDraftsViewer from './features/MockDraftsViewer';
+import { RoundedButton, PageFrame } from '../../shared';
+import MockDraftsViewer from '../features/MockDraftsViewer';
+import { useNavigate } from 'react-router-dom';
 
-export const MockDraftsPage = () => {
+export function MockDraftsPage() {
+    const navigate = useNavigate();
     const [isLeftArrowHovered, setLeftArrowHovered] = useState(false);
     const [isRightArrowHovered, setRightArrowHovered] = useState(false);
     const [slideDirection, setSlideDirection] = useState<string | null>(null);
-    const [mockDrafts, setMockDrafts] = useState([1,2,3]);
+    const [mockDrafts, setMockDrafts] = useState([1, 2, 3]);
     const [draftIndex, setDraftIndex] = useState(0);
 
-    const incrementMockDrafts= () => {
+    const incrementMockDrafts = () => {
         const newIndex = (draftIndex + 1) % mockDrafts.length;
         setSlideDirection('right');
         setDraftIndex(newIndex);
-    }
+    };
 
     const decrementMockDrafts = () => {
         const newIndex = (draftIndex - 1 + mockDrafts.length) % mockDrafts.length;
@@ -33,18 +35,23 @@ export const MockDraftsPage = () => {
             />
             <MockDraftsViewer slideDirection={slideDirection} mockDraft={mockDrafts[draftIndex]} />
             <TbChevronCompactRight
-                style={{ ...styles.rightArrow, opacity: isRightArrowHovered ? 0.5 : 1 } as React.CSSProperties}
+                style={
+                    {
+                        ...styles.rightArrow,
+                        opacity: isRightArrowHovered ? 0.5 : 1,
+                    } as React.CSSProperties
+                }
                 onMouseEnter={() => setRightArrowHovered(true)}
                 onMouseLeave={() => setRightArrowHovered(false)}
                 onClick={incrementMockDrafts}
             />
             <p style={styles.createMockDraftSuggestion as React.CSSProperties}>No mock drafts? Create one.</p>
-            <RoundedButton style={styles.createMockDraftButton} handleOnClick={() => {}}>
+            <RoundedButton style={styles.createMockDraftButton} handleOnClick={() => {navigate('/mock-drafts/create');}}>
                 CREATE DRAFT
             </RoundedButton>
         </PageFrame>
     );
-};
+}
 
 const styles = {
     createMockDraftButton: {

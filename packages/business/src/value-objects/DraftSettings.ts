@@ -1,4 +1,4 @@
-import { DraftSettingsDTO } from "../../../contracts";
+import { DraftSettingsDTO } from '../../../contracts/src/rest-api/shared/DraftSettingsDTO';
 import { BadRequestError } from '../exceptions';
 import { IntegerInterval } from './IntegerInterval';
 
@@ -52,18 +52,17 @@ export class DraftSettings {
         } else {
             this.pickTimeSeconds = new IntegerInterval('pickTimeSeconds', settings.pickTimeSeconds, 30, 120);
         }
-        const teamSize =
-            settings.teamCount +
-            settings.benchSlots +
-            settings.utilitySlots +
-            settings.pointguardSlots +
-            settings.shootingguardSlots +
-            settings.guardSlots +
-            settings.smallforwardSlots +
-            settings.powerforwardSlots +
-            settings.forwardSlots +
-            settings.centerSlots;
-        
+        const teamSize = settings.teamCount
+            + settings.benchSlots
+            + settings.utilitySlots
+            + settings.pointguardSlots
+            + settings.shootingguardSlots
+            + settings.guardSlots
+            + settings.smallforwardSlots
+            + settings.powerforwardSlots
+            + settings.forwardSlots
+            + settings.centerSlots;
+
         if (teamSize <= 0) {
             throw new BadRequestError('Team size must be greater than 0.');
         }

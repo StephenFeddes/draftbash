@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IDraftUsersRepository } from "../../../../business";
+import { IDraftUsersRepository } from '../../../../business';
 import { DatabaseConnection } from '../DatabaseConnection';
 
 export class DraftUsersRepository implements IDraftUsersRepository {

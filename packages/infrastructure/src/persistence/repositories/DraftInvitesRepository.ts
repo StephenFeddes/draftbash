@@ -1,4 +1,4 @@
-import { DraftInvite } from "../../../../business";
+import { DraftInvite } from '../../../../business';
 import { DatabaseConnection } from '../DatabaseConnection';
 
 export class DraftInvitesRepository {

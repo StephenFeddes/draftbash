@@ -1,5 +1,5 @@
-import { UserResponse, ISearchUsersByUsernameUseCase } from "../../../../../contracts";
-import { UserEntity } from "../../../entities";
+import { UserResponse, ISearchUsersByUsernameUseCase } from '../../../../../contracts';
+import { UserEntity } from '../../../entities';
 import { IUsersRepository } from '../../../persistence';
 import { UserNotFoundByUsernameError } from '../../../exceptions';
 

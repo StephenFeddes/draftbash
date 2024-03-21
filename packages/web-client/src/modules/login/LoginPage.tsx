@@ -1,6 +1,6 @@
-import React from "react";
-import { RightColumn } from "./layout/RightColumn";
-import { LeftColumn } from "./layout/LeftColumn";
+import React from 'react';
+import { RightColumn } from './layout/RightColumn';
+import { LeftColumn } from './layout/LeftColumn';
 
 export const LoginPage = () => {
     return (
@@ -16,5 +16,5 @@ const styles = {
         backgroundColor: 'var(--black)',
         display: 'flex',
         height: '100vh',
-    }
+    },
 };

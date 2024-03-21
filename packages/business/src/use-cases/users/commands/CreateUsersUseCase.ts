@@ -1,5 +1,10 @@
-import { IJwtAuthTokensService, IBcryptService, CreateUserRequest, ICreateUsersUseCase } from "../../../../../contracts";
-import { UserEntity } from "../../../entities";
+import {
+    IJwtAuthTokensService,
+    IBcryptService,
+    CreateUserRequest,
+    ICreateUsersUseCase,
+} from '../../../../../contracts';
+import { UserEntity } from '../../../entities';
 import { IUsersRepository } from '../../../persistence';
 import { UserCredentials } from '../../../value-objects';
 import { BadRequestError } from '../../../exceptions';
@@ -12,7 +17,11 @@ export class CreateUsersUseCase implements ICreateUsersUseCase {
 
     private readonly bcryptService: IBcryptService;
 
-    constructor(userRepository: IUsersRepository, jwtTokenService: IJwtAuthTokensService, bcryptService: IBcryptService) {
+    constructor(
+        userRepository: IUsersRepository,
+        jwtTokenService: IJwtAuthTokensService,
+        bcryptService: IBcryptService,
+    ) {
         this.userRepository = userRepository;
         this.jwtAuthTokenService = jwtTokenService;
         this.bcryptService = bcryptService;
@@ -43,8 +52,8 @@ export class CreateUsersUseCase implements ICreateUsersUseCase {
         // Inserts the user into the database. That user is then returned back.
         const createdUser: UserEntity = await this.userRepository.insertUser(userCredentials);
 
-        /* 
-        Signs and returns a signed JWT token with an expiration date. 
+        /*
+        Signs and returns a signed JWT token with an expiration date.
         Used for immediate authorization after a user is created.
         */
         const jwtToken: string = this.jwtAuthTokenService.sign(createdUser);

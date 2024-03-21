@@ -1,6 +1,6 @@
-import { CreateUserRequest } from "../../../contracts";
-import { BadRequestError } from "../exceptions";
-import { Email } from "./Email";
+import { CreateUserRequest } from '../../../contracts/src/rest-api/requests/CreateUserRequest';
+import { BadRequestError } from '../exceptions';
+import { Email } from './Email';
 
 export class UserCredentials {
     private readonly username: string;

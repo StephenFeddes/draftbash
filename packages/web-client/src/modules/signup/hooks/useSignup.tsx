@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useJwtTokenValidator, useAuth } from '../../shared';
-import { UserCredentials } from '../../../../../business';
+import { UserCredentials } from '../../../../../business/src/value-objects';
 
 export const useSignup = () => {
     const [signupError, setSignupError] = useState<string | null>(null);

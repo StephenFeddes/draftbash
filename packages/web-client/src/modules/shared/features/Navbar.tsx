@@ -7,11 +7,11 @@ export const Navbar = () => {
 
     const { logout } = useAuth();
 
-    const handleMouseOver = (e) => {
+    const handleMouseOver = (e: { currentTarget: { style: any; }; }) => {
         Object.assign(e.currentTarget.style, styles.option, styles.linkHover);
     };
 
-    const handleMouseOut = (e) => {
+    const handleMouseOut = (e: { currentTarget: { style: any; }; }) => {
         Object.assign(e.currentTarget.style, styles.option);
     };
 

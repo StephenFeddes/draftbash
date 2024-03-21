@@ -1,4 +1,4 @@
-export {Email} from './Email';
+export { Email } from './Email';
 export { IntegerInterval } from './IntegerInterval';
 export { DraftInvite } from './DraftInvite';
 export { DraftSettings } from './DraftSettings';

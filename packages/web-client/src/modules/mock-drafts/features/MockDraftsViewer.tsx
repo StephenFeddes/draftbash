@@ -3,7 +3,7 @@ import { RoundedButton } from '../../shared';
 
 interface Props {
     slideDirection: string | null;
-    
+
     mockDraft: unknown;
 }
 
@@ -18,10 +18,17 @@ export const MockDraftsViewer = (props: Props) => {
         }
     }, [mockDraft]);
 
+    let transformValue = '0';
+    if (isSliding) {
+        if (slideDirection === 'left') {
+            transformValue = '-100%';
+        } else if (slideDirection === 'right') {
+            transformValue = '100%';
+        }
+    }
+
     const slidingStyles = {
-        transform: `translateX(${
-            isSliding && slideDirection === 'left' ? '-100%' : isSliding && slideDirection === 'right' ? '100%' : '0'
-        })`,
+        transform: transformValue,
         transition: isSliding ? 'transform 0.5s ease-out' : 'none',
         overflow: 'hidden',
     };
@@ -29,7 +36,7 @@ export const MockDraftsViewer = (props: Props) => {
     return (
         <div style={styles.mockDraftsContainer}>
             <h2 style={styles.draftHeader}>Your Mock Draft</h2>
-            <ul style={{...styles.details, ...slidingStyles}}>
+            <ul style={{ ...styles.details, ...slidingStyles }}>
                 <li style={styles.draftDetail}>
                     Draft Type: <b style={styles.draftDetailValue}>linear</b>
                 </li>
@@ -99,7 +106,7 @@ const styles = {
         marginLeft: '25%',
         backgroundColor: 'var(--blue)',
         color: 'white',
-    } as React.CSSProperties
+    } as React.CSSProperties,
 };
 
 export default MockDraftsViewer;

@@ -1,1 +1,1 @@
-export type {DraftSettingsDTO} from './DraftSettingsDTO';
+export type { DraftSettingsDTO } from './DraftSettingsDTO';

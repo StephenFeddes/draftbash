@@ -1,5 +1,5 @@
-import { BadRequestError } from "../exceptions";
-import { MockDraft } from "../value-objects";
+import { BadRequestError } from '../exceptions';
+import { MockDraft } from '../value-objects';
 
 export class MockDraftEntity {
     private draftId: number;

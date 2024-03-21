@@ -5,8 +5,8 @@ import {
     LoginUsersUseCase,
     ValidateJwtAuthTokensUseCase,
     GetUserMockDraftsUseCase,
-} from "../../../../business";
-import { UsersRepository, MockDraftsRepository, BcryptService, JwtAuthTokensService } from "../../../../infrastructure";
+} from '../../../../business';
+import { UsersRepository, MockDraftsRepository, BcryptService, JwtAuthTokensService } from '../../../../infrastructure';
 import { UsersController } from '../controllers/UsersController';
 
 export const usersRouter = express.Router();

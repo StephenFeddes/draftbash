@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { configDotenv } from 'dotenv';
 import { Pool } from 'pg';
-import { IDatabaseConnection } from "../../../contracts";
+import { IDatabaseConnection } from '../../../contracts';
 
 configDotenv();
 

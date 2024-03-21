@@ -1,4 +1,4 @@
-import { IDraftOrderObserver } from "./IDraftOrderObserver";
+import { IDraftOrderObserver } from './IDraftOrderObserver';
 
 export interface IDraftOrderSubject {
     addObserver(observer: IDraftOrderObserver): void;

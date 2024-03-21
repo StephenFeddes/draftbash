@@ -1,4 +1,4 @@
-import { UserEntity } from "../../../business/src/entities/UserEntity";
+import { UserEntity } from '../../../business/src/entities/UserEntity';
 import { UserResponse } from '../rest-api/responses';
 
 export interface IJwtAuthTokensService {

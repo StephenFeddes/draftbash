@@ -5,7 +5,6 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended", // Include this line for Prettier integration
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript"
@@ -14,14 +13,24 @@
     "rules": {
         "no-unused-vars": "warn",
         "import/extensions": "off",
-        "class-methods-use-this": "off",
-        "object-shorthand": "off",
-        "no-useless-catch": "off",
-        "no-plusplus": "off",
-        "no-await-in-loop": "off",
-        "import/no-extraneous-dependencies": "off",
         "import/prefer-default-export": "off",
-        "prettier/prettier": "off"
+        "react/jsx-filename-extension": "off",
+        "no-use-before-define": "off",
+        "react/function-component-definition": "off",
+        "import/no-relative-packages": "off",
+        "linebreak-style": "off",
+        "indent": "off",
+        "no-await-in-loop": "off",
+        "no-plusplus": "off",
+        "comma-dangle": "off",
+        "class-methods-use-this": "off",
+        "max-len": "off",
+        "object-curly-newline": "off",
+        "import/no-extraneous-dependencies": "off",
+        "react/jsx-indent": "off",
+        "object-shorthand": "off",
+        "arrow-body-style": "off",
+        "react/jsx-one-expression-per-line": "off"
     },
     "settings": {
         "import/resolver": {

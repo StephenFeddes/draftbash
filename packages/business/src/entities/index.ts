@@ -1,2 +1,2 @@
-export {UserEntity} from './UserEntity';
-export {MockDraftEntity} from './MockDraftEntity';
+export { UserEntity } from './UserEntity';
+export { MockDraftEntity } from './MockDraftEntity';

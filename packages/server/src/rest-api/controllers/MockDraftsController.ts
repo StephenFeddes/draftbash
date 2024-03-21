@@ -34,9 +34,7 @@ export class MockDraftsController {
     public async createMockDraft(req: Request, res: Response) {
         try {
             const createMockDraftRequest: CreateMockDraftRequest = req.body;
-            const createdDraftId: number = await this.createMockDraftsUseCase.createMockDraft(
-                createMockDraftRequest
-            );
+            const createdDraftId: number = await this.createMockDraftsUseCase.createMockDraft(createMockDraftRequest);
             res.status(201).send({ draftId: createdDraftId });
         } catch (error: unknown) {
             if (error instanceof BadRequestError) {
@@ -52,8 +50,7 @@ export class MockDraftsController {
     public async getMockDraft(req: Request, res: Response) {
         try {
             const draftId: number = Number(req.params.draftId);
-            const mockDraftResponse: MockDraftResponse =
-                await this.getMockDraftsUseCase.getMockDraft(draftId);
+            const mockDraftResponse: MockDraftResponse = await this.getMockDraftsUseCase.getMockDraft(draftId);
             res.status(200).send(mockDraftResponse);
         } catch (error: unknown) {
             if (error instanceof DraftNotFoundError) {

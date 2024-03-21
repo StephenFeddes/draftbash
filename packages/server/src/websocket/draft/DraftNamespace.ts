@@ -1,5 +1,5 @@
 import { Server, Socket } from 'socket.io';
-import { SocketIOWebSocketAdapter } from '../../../../infrastructure'
+import { SocketIOWebSocketAdapter } from '../../../../infrastructure';
 import { httpServer } from '../../app';
 import { DraftOrderSubject } from './DraftOrderSubject';
 import { DraftOrderObserverTimer } from './draft-order-observers/DraftOrderObserverTimer';

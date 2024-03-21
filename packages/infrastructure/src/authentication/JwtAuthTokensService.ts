@@ -1,7 +1,7 @@
 import * as Jwt from 'jsonwebtoken';
 import { configDotenv } from 'dotenv';
-import { InvalidJwtTokenError, UserEntity } from "../../../business";
-import { UserResponse, IJwtAuthTokensService } from "../../../contracts";
+import { InvalidJwtTokenError, UserEntity } from '../../../business';
+import { UserResponse, IJwtAuthTokensService } from '../../../contracts';
 
 configDotenv();
 

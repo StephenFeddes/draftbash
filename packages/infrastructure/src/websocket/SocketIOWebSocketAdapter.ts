@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Socket, Namespace } from 'socket.io';
-import { IWebSocketAdapter } from "../../../contracts";
+import { IWebSocketAdapter } from '../../../contracts';
 
 export class SocketIOWebSocketAdapter implements IWebSocketAdapter {
     private readonly socket: Socket;

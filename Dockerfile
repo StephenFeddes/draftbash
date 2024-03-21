@@ -22,11 +22,8 @@ RUN yarn install
 WORKDIR /app
 RUN npx tsc
 
-# Set the working directory to the TypeScript build output of the server module
-WORKDIR /app/dist/server
-
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Command to run the application
-CMD ["node", "src/app.js"]
+CMD ["sh", "-c", "npx prisma migrate dev --schema=./packages/infrastructure/src/persistence/schema.prisma --name migration && node dist/server/src/app.js"]
