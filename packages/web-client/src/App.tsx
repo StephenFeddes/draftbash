@@ -6,6 +6,8 @@ import { SignupPage } from './modules/signup';
 import { MockDraftsPage } from './modules/mock-drafts/pages/MockDraftsPage';
 import { CreateMockDraftsPage } from './modules/mock-drafts/pages/CreateMockDraftsPage';
 
+
+// Entry point
 export function App() {
     return (
         <AuthProvider>
