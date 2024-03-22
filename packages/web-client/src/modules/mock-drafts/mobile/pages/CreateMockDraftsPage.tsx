@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { PageFrame, RoundedButton } from '../../shared';
-import { useAuth } from '../../shared';
-import PickList from '../../shared/components/lists/PickList';
+import { PageFrame, RoundedButton } from '../../../shared';
+import { useAuth } from '../../../shared';
+import PickList from '../../../shared/components/lists/PickList';
 import SettingsRadioInput from '../components/SettingsRadioInput';
 import useCreateMockDraft from '../hooks/useCreateMockDraft';
 
-export function CreateMockDraftsPage() {
+export function CreateMockDraftsPageMobile() {
     const { handleCreateMockDraft } = useCreateMockDraft();
     const { user } = useAuth();
     const [scoringType, setScoringType] = useState('Points');
@@ -215,7 +215,7 @@ const styles = {
         marginTop: '20px',
     } as React.CSSProperties,
     createMockDraftButton: {
-        backgroundColor: 'var(--gold)',
+        backgroundColor: 'red',
         color: 'white',
         width: '40%',
         marginLeft: '30%',

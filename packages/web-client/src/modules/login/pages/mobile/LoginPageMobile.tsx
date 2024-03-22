@@ -1,10 +1,8 @@
-import { RightColumn } from './layout/RightColumn';
-import { LeftColumn } from './layout/LeftColumn';
+import { RightColumn } from "../..";
 
-export const LoginPage = () => {
+export const LoginPageMobile = () => {
     return (
         <div style={styles.loginPage}>
-            <LeftColumn />
             <RightColumn />
         </div>
     );
@@ -14,6 +12,6 @@ const styles = {
     loginPage: {
         backgroundColor: 'var(--black)',
         display: 'flex',
-        height: '100vh',
+        height: '100vh'
     },
 };

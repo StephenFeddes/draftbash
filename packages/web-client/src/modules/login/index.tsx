@@ -1,4 +1,4 @@
-export { LoginPage } from './LoginPage';
+export { LoginPage } from './pages/normal/LoginPage';
 export { LoginHeader } from './components/LoginHeader';
 export { LoginForm } from './features/LoginForm';
 export { useLogin } from './hooks/useLogin';

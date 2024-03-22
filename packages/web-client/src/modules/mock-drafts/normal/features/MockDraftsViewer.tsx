@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RoundedButton } from '../../shared';
+import { RoundedButton } from '../../../shared';
 
 interface Props {
     slideDirection: string | null;

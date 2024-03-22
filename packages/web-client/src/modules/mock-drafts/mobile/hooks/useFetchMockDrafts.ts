@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../shared';
+import { useAuth } from '../../../shared';
 
 export const useFetchMockDrafts = () => {
     const { user } = useAuth();
