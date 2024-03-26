@@ -6,16 +6,17 @@ import { PageLayout } from './modules/shared';
 
 interface ProtectedRouteProps {
     path: string;
-    element: React.ReactNode; // Change the type to React.ReactNode
+    element: React.ReactNode;
+    layout: React.ReactNode;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ path, element }) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ path, element, layout }) => {
     const { isAuthenticated } = useAuth();
 
     if (isAuthenticated) {
         return (
             <Routes>
-                <Route path="/" element={<PageLayout />}>
+                <Route path="/" element={layout}>
                     <Route path={path} element={element} />
                 </Route>
             </Routes>
