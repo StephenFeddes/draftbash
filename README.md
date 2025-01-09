@@ -1,7 +1,7 @@
 ![CI Status](https://github.com/DraftBashFantasySports/draftbash/actions/workflows/backend_ci.yml/badge.svg) ![CD Status](https://github.com/DraftBashFantasySports/draftbash/actions/workflows/backend_cd.yml/badge.svg)
 # DraftBash Fantasy Sports App
 
-A fantasy sports app for managing football and basketball teams.
+Fantasy sport mock draft simulator
 
 ## Table of Contents
 - [DraftBash Fantasy Sports App](#draftbash-sports-app)
@@ -50,28 +50,26 @@ Follow these instructions to set up the project locally and start using the Fant
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/DraftBashFantasySports/draftbash.git
+   git clone https://github.com/StephenFeddes/draftbash.git
 
 2. Navigate to the project directory:
 
     ```bash
     cd draftbash
 
-3. Build and start the project's Docker image and Postgres Database image with docker-compose
+### Running the application
+
+1. Start running the backend (SpringBoot app and Postgres Database) and then the frontend
 
     ```bash
-    cd apps/backend && docker-compose up --build
+    cd apps/backend && docker-compose up --build && cd apps/web-frontend && npm install && npm run dev
 
-4. Start the API.
-    ```bash
-    cd apps/backend && gradle bootRun
-
-5. Start the frontend
-    cd apps/web-frontend && npm run dev
+2. Start the frontend
+    cd apps/web-frontend && npm install && npm run dev
 
 ### Usage
 
-1. Open your web browser and navigate to http://localhost:3000 to see the API running
+1. Open your web browser and navigate to http://localhost:8080 to see the API running
 
 2. Use Postman or curl to test some API endpoints.
 
@@ -82,7 +80,7 @@ Follow these instructions to set up the project locally and start using the Fant
     ```bash
     cli/db.sh
 
-4. Visit the site at http http://localhost:5173
+4. Visit the frontend at http http://localhost:5173
 
 ## Contributing
 
